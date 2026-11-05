@@ -1,19 +1,22 @@
 pkgname = "umbriel"
-pkgver = "0_git20260929"
+pkgver = "0_git20261104"
 pkgrel = 0
-_commit = "b9301a679f2f7986ebfd266fb4bfb627ad2a9eb2"
+_commit = "b6c4b7ddfb03e6bacf4fd0c76a13dca3a29f172f"
 build_style = "meson"
 configure_args = [
     "-Djemalloc=disabled",
-    "-Dtest_ipc=disabled",
+    "-Dharness=disabled",
     "-Dtracy=disabled",
 ]
 hostmakedepends = ["meson", "pkgconf", "wayland-progs"]
 makedepends = [
     "cairo-devel",
     "lcms2-devel",
+    "libdisplay-info-devel",
     "libdrm-devel",
+    "libei-devel",
     "libinput-devel",
+    "libxcb-devel",
     "libxkbcommon-devel",
     "linux-headers",
     "mesa-devel",
@@ -26,13 +29,14 @@ makedepends = [
     "wayland-devel",
     "wayland-protocols",
     "wlroots0.20-devel",
+    "xcb-util-wm-devel",
 ]
 depends = ["dbus", "xwayland-satellite"]
 pkgdesc = "Wayland compositor with a custom effects renderer"
 license = "MIT"
 url = "https://github.com/noctalia-dev/umbriel"
 source = f"{url}/archive/{_commit}.tar.gz"
-sha256 = "9118123f8a6c50c75e52271055c949fbbb3535305b4f659c3c15b9a185f8a8c9"
+sha256 = "1cfbf9388ff0837107316cbbeb6ec8c75fd2ca9ed94026c167d85cf2007758fd"
 
 
 def post_install(self):
